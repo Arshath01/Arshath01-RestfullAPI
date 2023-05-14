@@ -17,7 +17,7 @@ async () => {
       console.log(`Server is running on port ${port}`);
     });
 
-    return clientPromise;
+
   } catch (error) {
     console.error('Failed to connect to MongoDB:', error);
   }
