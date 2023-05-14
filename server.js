@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 // Add the connection to MongoDB before starting the server
-const db_data = async () => {
+async () => {
   try {
     const clientPromise = await makeConnection();
     console.log(clientPromise)
@@ -26,7 +26,7 @@ const db_data = async () => {
 app.post('/api/data', async (req, res) => {
   const { name, password } = req.body;
   console.log(name, password);
-  res.status(200).json({ message: 'Message from server', name: name, password: password,db:JSON.stringify(db_data) });
+  res.status(200).json({ message: 'Message from server', name: name, password: password});
 });
 
 app.get('/api/data', (req, res) => {
