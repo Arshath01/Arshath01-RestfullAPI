@@ -27,9 +27,9 @@ app.post('/api/data', async (req, res) => {
   res.status(200).json({ message: 'Message from server', name: name, password: password });
 });
 
-app.get('/api/data', (req, res) => {
-  res.status(200).json({ message: 'Message'});
-});
+// app.get('/api/data', (req, res) => {
+//   res.status(200).json({ message: 'Message'});
+// });
 
 app.get('/api/db', (req, res) => {
   if (dbClient) {
