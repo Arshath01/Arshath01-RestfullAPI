@@ -11,7 +11,7 @@ app.use(cors())
 
 app.post('/api/data',async(req,res)=>{
     
-    const clientResponse = await makeConnection();
+    
     const {name,password} = req.body;
     console.log(name,password)
     
@@ -25,5 +25,6 @@ app.get('/api/data',(req,res)=>{
 })
 
 app.listen(port,()=>{
+    
     console.log(`server is running on the port ${port}`)
 })
