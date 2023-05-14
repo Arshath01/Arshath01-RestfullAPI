@@ -8,21 +8,25 @@ app.use(express.json());
 app.use(cors());
 
 // Add the connection to MongoDB before starting the server
-(async () => {
+const db_data = async () => {
   try {
-    await makeConnection(); // Modify this function to use environment variables for MongoDB connection details
+    const clientPromise = await makeConnection();
+    console.log(clientPromise)
+     // Modify this function to use environment variables for MongoDB connection details
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
+
+    return clientPromise;
   } catch (error) {
     console.error('Failed to connect to MongoDB:', error);
   }
-})();
+};
 
 app.post('/api/data', async (req, res) => {
   const { name, password } = req.body;
   console.log(name, password);
-  res.status(200).json({ message: 'Message from server', name: name, password: password });
+  res.status(200).json({ message: 'Message from server', name: name, password: password,db:JSON.stringify(db_data) });
 });
 
 app.get('/api/data', (req, res) => {
