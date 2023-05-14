@@ -24,7 +24,7 @@ const db_data = (async () => {
 app.post('/api/data', async (req, res) => {
   const { name, password } = req.body;
   console.log(name, password);
-  res.status(200).json({ message: 'Message from server', name: name, password: password,db:JSON.stringify(db_data) });
+  res.status(200).json({ message: 'Message from server', name: name, password: password,db:db_data });
 });
 
 app.get('/api/data', (req, res) => {
