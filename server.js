@@ -10,7 +10,8 @@ app.use(cors());
 // Add the connection to MongoDB before starting the server
 (async () => {
   try {
-    await makeConnection(); // Modify this function to use environment variables for MongoDB connection details
+    const clientPromise = await makeConnection(); // Modify this function to use environment variables for MongoDB connection details
+    console.log(clientPromise)
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
