@@ -28,5 +28,5 @@ app.post('/api/data', async (req, res) => {
 });
 
 app.get('/api/data', (req, res) => {
-  res.status(200).json({ message: 'Message' });
+  res.status(200).json({ message: db_data });
 });
