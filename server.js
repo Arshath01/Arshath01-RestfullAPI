@@ -33,7 +33,7 @@ app.post('/api/data', async (req, res) => {
 
 app.get('/api/db', (req, res) => {
   if (dbClient) {
-    res.status(200).json({ message: 'MongoDB client available', client: JSON.stringify(dbClient) });
+    res.status(200).json({ message: 'MongoDB client available'});
   } else {
     res.status(500).json({ message: 'MongoDB client not available' });
   }
